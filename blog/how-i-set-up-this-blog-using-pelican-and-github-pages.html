@@ -57,17 +57,17 @@
 <h2>Part1: (Installation)</h2>
 <p>It's generally recommended to use a virtual environment while installing pelican and its additional dependencies. If not, that's fine too though managing all the libraries might eventually turn messy.</p>
 <p>First step is to <a href="https://docs.getpelican.com/en/latest/install.html">install</a> the pelican package using pip or whichever tool is convenient</p>
-<div class="highlight"><pre><span></span><code>python3 -m pip install pelican
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>pelican
 </code></pre></div>
 
 <p>If you want to write the content for your site in markdown, you would have to install the extra python package <strong>markdown</strong>.</p>
-<div class="highlight"><pre><span></span><code>python3 -m pip install pelican<span class="o">[</span>markdown<span class="o">]</span>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>pelican<span class="o">[</span>markdown<span class="o">]</span>
 </code></pre></div>
 
 <p>Now If you're relatively new to python(and r using pip) like me, you'll probably be wondering what the square brackets [] are for around markdown. From whatever I read, it seems to mean that installing in this fasion makes markdown an <a href="https://github.com/getpelican/pelican/issues/2585">optional dependency</a> of pelican. 
 And note its fine to install pelican first and then install markdown as a standalone package or as an optional dependency by invoking the above command in your terminal</p>
 <p>To install it as a standalone package:</p>
-<div class="highlight"><pre><span></span><code>python3 -m pip install markdown
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>markdown
 </code></pre></div>
 
 <p>Now we need to set up pelican, do this by entering the directory where you'll be setting up your site/blog content, generating the ouput, etc. Now type into your terminal</p>
@@ -75,30 +75,30 @@ And note its fine to install pelican first and then install markdown as a standa
 </code></pre></div>
 
 <p>This should trigger a set of questions(default answer if any will be enclosed in brackets) whose answers will determine the basic layout of a configuration file wich we will shortly see and dicuss in greater detail</p>
-<div class="highlight"><pre><span></span><code><span class="o">(</span>personal_site_venv<span class="o">)</span> cecil@DESKTOP:~/projects/personal_site/pelican_demo$ pelican-quickstart
-Welcome to pelican-quickstart v4.6.0.
+<div class="highlight"><pre><span></span><code><span class="o">(</span>personal_site_venv<span class="o">)</span><span class="w"> </span>cecil@DESKTOP:~/projects/personal_site/pelican_demo$<span class="w"> </span>pelican-quickstart
+Welcome<span class="w"> </span>to<span class="w"> </span>pelican-quickstart<span class="w"> </span>v4.6.0.
 
-This script will <span class="nb">help</span> you create a new Pelican-based website.
+This<span class="w"> </span>script<span class="w"> </span>will<span class="w"> </span><span class="nb">help</span><span class="w"> </span>you<span class="w"> </span>create<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>Pelican-based<span class="w"> </span>website.
 
-Please answer the following questions so this script can generate the files needed by Pelican.
+Please<span class="w"> </span>answer<span class="w"> </span>the<span class="w"> </span>following<span class="w"> </span>questions<span class="w"> </span>so<span class="w"> </span>this<span class="w"> </span>script<span class="w"> </span>can<span class="w"> </span>generate<span class="w"> </span>the<span class="w"> </span>files<span class="w"> </span>needed<span class="w"> </span>by<span class="w"> </span>Pelican.
 
-&gt; Where <span class="k">do</span> you want to create your new web site? <span class="o">[</span>.<span class="o">]</span> .
-&gt; What will be the title of this web site? pelican_demo
-&gt; Who will be the author of this web site? cecil
-&gt; What will be the default language of this web site? <span class="o">[</span>en<span class="o">]</span>
-&gt; Do you want to specify a URL prefix? e.g., https://example.com   <span class="o">(</span>Y/n<span class="o">)</span> n
-&gt; Do you want to <span class="nb">enable</span> article pagination? <span class="o">(</span>Y/n<span class="o">)</span> Y
-&gt; How many articles per page <span class="k">do</span> you want? <span class="o">[</span><span class="m">10</span><span class="o">]</span>
-&gt; What is your <span class="nb">time</span> zone? <span class="o">[</span>Europe/Paris<span class="o">]</span> Asia/Kolkata
-&gt; Do you want to generate a tasks.py/Makefile to automate generation and publishing? <span class="o">(</span>Y/n<span class="o">)</span> Y
-&gt; Do you want to upload your website using FTP? <span class="o">(</span>y/N<span class="o">)</span> N
-&gt; Do you want to upload your website using SSH? <span class="o">(</span>y/N<span class="o">)</span> N
-&gt; Do you want to upload your website using Dropbox? <span class="o">(</span>y/N<span class="o">)</span>
-&gt; Do you want to upload your website using S3? <span class="o">(</span>y/N<span class="o">)</span>
-&gt; Do you want to upload your website using Rackspace Cloud Files? <span class="o">(</span>y/N<span class="o">)</span>
-&gt; Do you want to upload your website using GitHub Pages? <span class="o">(</span>y/N<span class="o">)</span> y
-&gt; Is this your personal page <span class="o">(</span>username.github.io<span class="o">)</span>? <span class="o">(</span>y/N<span class="o">)</span> y
-Done. Your new project is available at /home/cecil/projects/personal_site/pelican_demo
+&gt;<span class="w"> </span>Where<span class="w"> </span><span class="k">do</span><span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>create<span class="w"> </span>your<span class="w"> </span>new<span class="w"> </span>web<span class="w"> </span>site?<span class="w"> </span><span class="o">[</span>.<span class="o">]</span><span class="w"> </span>.
+&gt;<span class="w"> </span>What<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>the<span class="w"> </span>title<span class="w"> </span>of<span class="w"> </span>this<span class="w"> </span>web<span class="w"> </span>site?<span class="w"> </span>pelican_demo
+&gt;<span class="w"> </span>Who<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>the<span class="w"> </span>author<span class="w"> </span>of<span class="w"> </span>this<span class="w"> </span>web<span class="w"> </span>site?<span class="w"> </span>cecil
+&gt;<span class="w"> </span>What<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>the<span class="w"> </span>default<span class="w"> </span>language<span class="w"> </span>of<span class="w"> </span>this<span class="w"> </span>web<span class="w"> </span>site?<span class="w"> </span><span class="o">[</span>en<span class="o">]</span>
+&gt;<span class="w"> </span>Do<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>specify<span class="w"> </span>a<span class="w"> </span>URL<span class="w"> </span>prefix?<span class="w"> </span>e.g.,<span class="w"> </span>https://example.com<span class="w">   </span><span class="o">(</span>Y/n<span class="o">)</span><span class="w"> </span>n
+&gt;<span class="w"> </span>Do<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>article<span class="w"> </span>pagination?<span class="w"> </span><span class="o">(</span>Y/n<span class="o">)</span><span class="w"> </span>Y
+&gt;<span class="w"> </span>How<span class="w"> </span>many<span class="w"> </span>articles<span class="w"> </span>per<span class="w"> </span>page<span class="w"> </span><span class="k">do</span><span class="w"> </span>you<span class="w"> </span>want?<span class="w"> </span><span class="o">[</span><span class="m">10</span><span class="o">]</span>
+&gt;<span class="w"> </span>What<span class="w"> </span>is<span class="w"> </span>your<span class="w"> </span><span class="nb">time</span><span class="w"> </span>zone?<span class="w"> </span><span class="o">[</span>Europe/Paris<span class="o">]</span><span class="w"> </span>Asia/Kolkata
+&gt;<span class="w"> </span>Do<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>generate<span class="w"> </span>a<span class="w"> </span>tasks.py/Makefile<span class="w"> </span>to<span class="w"> </span>automate<span class="w"> </span>generation<span class="w"> </span>and<span class="w"> </span>publishing?<span class="w"> </span><span class="o">(</span>Y/n<span class="o">)</span><span class="w"> </span>Y
+&gt;<span class="w"> </span>Do<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>upload<span class="w"> </span>your<span class="w"> </span>website<span class="w"> </span>using<span class="w"> </span>FTP?<span class="w"> </span><span class="o">(</span>y/N<span class="o">)</span><span class="w"> </span>N
+&gt;<span class="w"> </span>Do<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>upload<span class="w"> </span>your<span class="w"> </span>website<span class="w"> </span>using<span class="w"> </span>SSH?<span class="w"> </span><span class="o">(</span>y/N<span class="o">)</span><span class="w"> </span>N
+&gt;<span class="w"> </span>Do<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>upload<span class="w"> </span>your<span class="w"> </span>website<span class="w"> </span>using<span class="w"> </span>Dropbox?<span class="w"> </span><span class="o">(</span>y/N<span class="o">)</span>
+&gt;<span class="w"> </span>Do<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>upload<span class="w"> </span>your<span class="w"> </span>website<span class="w"> </span>using<span class="w"> </span>S3?<span class="w"> </span><span class="o">(</span>y/N<span class="o">)</span>
+&gt;<span class="w"> </span>Do<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>upload<span class="w"> </span>your<span class="w"> </span>website<span class="w"> </span>using<span class="w"> </span>Rackspace<span class="w"> </span>Cloud<span class="w"> </span>Files?<span class="w"> </span><span class="o">(</span>y/N<span class="o">)</span>
+&gt;<span class="w"> </span>Do<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>upload<span class="w"> </span>your<span class="w"> </span>website<span class="w"> </span>using<span class="w"> </span>GitHub<span class="w"> </span>Pages?<span class="w"> </span><span class="o">(</span>y/N<span class="o">)</span><span class="w"> </span>y
+&gt;<span class="w"> </span>Is<span class="w"> </span>this<span class="w"> </span>your<span class="w"> </span>personal<span class="w"> </span>page<span class="w"> </span><span class="o">(</span>username.github.io<span class="o">)</span>?<span class="w"> </span><span class="o">(</span>y/N<span class="o">)</span><span class="w"> </span>y
+Done.<span class="w"> </span>Your<span class="w"> </span>new<span class="w"> </span>project<span class="w"> </span>is<span class="w"> </span>available<span class="w"> </span>at<span class="w"> </span>/home/cecil/projects/personal_site/pelican_demo
 </code></pre></div>
 
 <p>The above were my responses and might vary from peson to person(For example I was using github pages to host my content and hence answered yes to that, though I confess I'm not sure where it makes a difference)
@@ -119,13 +119,13 @@ Once you answer these questions you'll find that the directory now contains a</p
 <p>Lets start with making a simple post.
 Since I'm writing the post in markdown, you'll have to have the extra markdown package installed as well(instructions above in part1). 
 Enter the content folder and create a sample file:</p>
-<div class="highlight"><pre><span></span><code>nano demo.md
+<div class="highlight"><pre><span></span><code>nano<span class="w"> </span>demo.md
 </code></pre></div>
 
 <p>Here's the example I'll be using for this post:</p>
 <p><img alt="Image of a sample .md file" src="../images/post_data.png"></p>
 <p>After filling it out in a similiar fasion and supplying it enough metadata(more on metadata later), save it and lets generate the output. go back to the main directory of the website and invoke:</p>
-<div class="highlight"><pre><span></span><code>pelican content -s pelicanconf.py
+<div class="highlight"><pre><span></span><code>pelican<span class="w"> </span>content<span class="w"> </span>-s<span class="w"> </span>pelicanconf.py
 </code></pre></div>
 
 <p>you'll find that pelican has populated the output directory with an index.html file and a bunch of other files. Now if you're using Github for hosting your blog, one workflow would be to just upload this output folder generated to github as the github page repository.</p>
