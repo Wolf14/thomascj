@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Cecil">
+  <meta name="description" content="My first program using PCL(Point Cloud Library) | Recently I&#39;ve been trying to learn about sensor fusion as part of my Dual Degree project. Many of the...">
+
+  <link rel="stylesheet" type="text/css" href="../../theme/css/styles.425931e9.min.css">
+
+  <script src="../../theme/js/scripts.ab06d70e.min.js" type="text/javascript"></script>
+
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<meta name="keywords" content="">
+
+  <title>My first program using PCL(Point Cloud Library) | Cecil Jacob Thomas</title>
+
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="../..">
+      </a>
+      <h2><a href="../.." class="nohover">Cecil Jacob Thomas</a></h2>
+      <p></p>
+      <div class="social">
+          <a href="https://github.com/Wolf14" title="github" target="_blank" rel="noopener noreferrer"><i class="fa fa-github fa-lg"></i></a>
+          <a href="mailto:ceciljacob1@gmail.com" title="mail" target="_blank" rel="noopener noreferrer"><i class="fa fa-envelope fa-lg"></i></a>
+          <a href="https://www.youtube.com/channel/UCKF42SRXoyp5DCNql12WclA" title="youtube" target="_blank" rel="noopener noreferrer"><i class="fa fa-youtube fa-lg"></i></a>
+      </div>
+      <ul>
+      </ul>
+    </div>
+  </aside>
+
+  <main id="main">
+    <header>
+      <p id="header">
+      <a href="../..">Home</a>
+
+      &#124; <a href="../../blog/index.html">Blog</a>
+      </p>
+<p>
+<a href="../../blog/index.html">Posts</a>
+</p>    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="../../blog/my-first-program-using-pclpoint-cloud-library/my-first-program-using-pclpoint-cloud-library.html" class="nohover">My first program using PCL(Point Cloud Library)</a></h1>
+  </div>
+  <div class="article_text">
+    <p>Recently I've been trying to learn about sensor fusion as part of my Dual Degree project. Many of the tutorials on the same used the PCL library for certain point cloud processing operations. Thus I decided to give it a try.</p>
+<p>I started off with copy-pasting the sample code to visualize a PCD file. </p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="cpf">&lt;pcl/visualization/cloud_viewer.h&gt;</span>
+<span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="cpf">&lt;pcl/common/io.h&gt;</span>
+<span class="cp">#include</span><span class="cpf">&lt;pcl/io/pcd_io.h&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">user_data</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">viewerOneOff</span><span class="w"> </span><span class="p">(</span><span class="n">pcl</span><span class="o">::</span><span class="n">visualization</span><span class="o">::</span><span class="n">PCLVisualizer</span><span class="o">&amp;</span><span class="w"> </span><span class="n">viewer</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">viewer</span><span class="p">.</span><span class="n">setBackgroundColor</span><span class="w"> </span><span class="p">(</span><span class="mf">1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">);</span>
+<span class="w">  </span><span class="n">pcl</span><span class="o">::</span><span class="n">PointXYZ</span><span class="w"> </span><span class="n">o</span><span class="p">;</span>
+<span class="w">  </span><span class="n">o</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">;</span>
+<span class="w">  </span><span class="n">o</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="n">o</span><span class="p">.</span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="n">viewer</span><span class="p">.</span><span class="n">addSphere</span><span class="w"> </span><span class="p">(</span><span class="n">o</span><span class="p">,</span><span class="w"> </span><span class="mf">0.25</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;sphere&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;i only run once&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">viewerPsycho</span><span class="p">(</span><span class="n">pcl</span><span class="o">::</span><span class="n">visualization</span><span class="o">::</span><span class="n">PCLVisualizer</span><span class="o">&amp;</span><span class="w"> </span><span class="n">viewer</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">stringstream</span><span class="w"> </span><span class="n">ss</span><span class="p">;</span>
+<span class="w">  </span><span class="n">ss</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Once per viewer loop: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
+<span class="w">  </span><span class="n">viewer</span><span class="p">.</span><span class="n">removeShape</span><span class="p">(</span><span class="s">&quot;text&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">  </span><span class="n">viewer</span><span class="p">.</span><span class="n">addText</span><span class="p">(</span><span class="n">ss</span><span class="p">.</span><span class="n">str</span><span class="p">(),</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;text&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">user_data</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">pcl</span><span class="o">::</span><span class="n">PointCloud</span><span class="o">&lt;</span><span class="n">pcl</span><span class="o">::</span><span class="n">PointXYZRGBA</span><span class="o">&gt;::</span><span class="n">Ptr</span><span class="w"> </span><span class="n">cloud</span><span class="w"> </span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">pcl</span><span class="o">::</span><span class="n">PointCloud</span><span class="o">&lt;</span><span class="n">pcl</span><span class="o">::</span><span class="n">PointXYZRGBA</span><span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">pcl</span><span class="o">::</span><span class="n">io</span><span class="o">::</span><span class="n">loadPCDFile</span><span class="p">(</span><span class="s">&quot;simpleHighway.pcd&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">cloud</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">pcl</span><span class="o">::</span><span class="n">visualization</span><span class="o">::</span><span class="n">CloudViewer</span><span class="w"> </span><span class="n">viewer</span><span class="p">(</span><span class="s">&quot;Cloud Viewer&quot;</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">viewer</span><span class="p">.</span><span class="n">showCloud</span><span class="p">(</span><span class="n">cloud</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">viewer</span><span class="p">.</span><span class="n">runOnVisualizationThreadOnce</span><span class="w"> </span><span class="p">(</span><span class="n">viewerOneOff</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">viewer</span><span class="p">.</span><span class="n">runOnVisualizationThread</span><span class="w"> </span><span class="p">(</span><span class="n">viewerPsycho</span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">viewer</span><span class="p">.</span><span class="n">wasStopped</span><span class="p">())</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">user_data</span><span class="o">++</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>The build and compilation used CMake(which I was never adept at, and forget routinely after learning). As expected, I ran into some stupid error. </p>
+<p>The CMakeLists.txt file looked like:</p>
+<div class="highlight"><pre><span></span><code>cmake_minimum_required<span class="o">(</span>VERSION<span class="w"> </span><span class="m">3</span>.5<span class="w"> </span>FATAL_ERROR<span class="o">)</span>
+
+project<span class="o">(</span>cloud_viewer<span class="o">)</span>
+
+find_package<span class="o">(</span>PCL<span class="w"> </span><span class="m">1</span>.2<span class="w"> </span>REQUIRED<span class="o">)</span>
+
+include_directories<span class="o">(</span><span class="si">${</span><span class="nv">PCL_INCLUDE_DIRS</span><span class="si">}</span><span class="o">)</span>
+link_directories<span class="o">(</span><span class="si">${</span><span class="nv">PCL_LIBRARY_DIRS</span><span class="si">}</span><span class="o">)</span>
+add_definitions<span class="o">(</span><span class="si">${</span><span class="nv">PCL_DEFINITIONS</span><span class="si">}</span><span class="o">)</span>
+add_executable<span class="o">(</span>cloud_viewer<span class="w"> </span>visualizer1.cpp<span class="o">)</span>
+
+target_link_libraries<span class="o">(</span>cloud_viewer<span class="w"> </span><span class="si">${</span><span class="nv">PCL_LIBRARIES</span><span class="si">}</span><span class="o">)</span>
+</code></pre></div>
+
+<p>On fixing that, I ran 'cmake .' in the same directory. The build ran smooth enough. Running 'make' after this threw up an error:</p>
+<div class="highlight"><pre><span></span><code>No such file or directory
+    1 | #include&lt;plc/visualization/cloud_viewer.h&gt;
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+make[2]: *** [CMakeFiles/cloud_viewer.dir/build.make:63: CMakeFiles/cloud_viewer.dir/visualizer1.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:76: CMakeFiles/cloud_viewer.dir/all] Error 2
+make: *** [Makefile:84: all] Error 2
+</code></pre></div>
+
+<p>Being the idiot I am, only the next day did I realize that I had included a path with "plc" instead of "pcl". </p>
+<h2>Some Takeaways:</h2>
+<p>Well in the process I learned that the compiler searches for headers in "/usr/include/" and shared libraries are stored(atleast most of them) in "/usr/lib/x86_64-linux-gnu".</p>
+<p>This was important as it turns out libraries like Eigen dont seem to compile for me when using the include path <code>#include&lt;Eigen/Dense&gt;</code>. I need to instead use <code>#include&lt;/eigen3Eigen/Dense&gt;</code>.</p>
+<h2>Final Output:</h2>
+<p><img alt="The PCD output visualized using Cloud Viewer" src="../../blog/my-first-program-using-pclpoint-cloud-library/images/highway_pcd.png"></p>
+  </div>
+<div class="article_meta">
+  <p>Posted <time data-timeago datetime="2024-06-11T13:16:00+05:30">Tue 11 June 2024</time>
+   by Cecil  </p>
+  <p>
+  Category: <a href="../../category/journal.html">Journal</a>
+</div>
+  <div id="article_comments">
+    <div id="disqus_thread">
+    </div>
+  </div>
+
+  <script id="dsq-count-scr" src="https://wolf14.disqus.com/count.js" async></script>
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.identifier = "blog/my-first-program-using-pclpoint-cloud-library/my-first-program-using-pclpoint-cloud-library.html";
+        this.page.title = "My first program using PCL(Point Cloud Library)";
+    };
+    loadDisqus = function(sitename) {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://wolf14.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    };
+    loadDisqus();
+  </script>
+</article>
+
+
+    <div id="ending_message">
+        <p>&copy; Cecil. Built using <a href="http://getpelican.com">Pelican</a>. Theme is <a href="https://github.com/pR0Ps/pelican-subtle">subtle</a> by <a href="http://cmetcalfe.ca">Carey Metcalfe</a>. Based on <a href="https://github.com/giulivo/pelican-svbhack">svbhack</a> by Giulio Fidente.</p>
+    </div>
+  </main>
+
+  <script type="text/javascript">
+    window.addEventListener('load', skipHeader)
+  </script>
+
+
+</body>
+</html>

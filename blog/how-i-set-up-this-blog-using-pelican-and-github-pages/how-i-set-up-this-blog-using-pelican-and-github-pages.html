@@ -7,9 +7,9 @@
   <meta name="author" content="Cecil">
   <meta name="description" content="How I set up this blog (Using Pelican and Github Pages) | Pelican is a static-site generator. I can&#39;t really comment on what that mean&#39;s as I&#39;m still...">
 
-  <link rel="stylesheet" type="text/css" href="../theme/css/styles.425931e9.min.css">
+  <link rel="stylesheet" type="text/css" href="../../theme/css/styles.425931e9.min.css">
 
-  <script src="../theme/js/scripts.ab06d70e.min.js" type="text/javascript"></script>
+  <script src="../../theme/js/scripts.ab06d70e.min.js" type="text/javascript"></script>
 
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
@@ -23,9 +23,9 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="..">
+      <a href="../..">
       </a>
-      <h2><a href=".." class="nohover">Cecil Jacob Thomas</a></h2>
+      <h2><a href="../.." class="nohover">Cecil Jacob Thomas</a></h2>
       <p></p>
       <div class="social">
           <a href="https://github.com/Wolf14" title="github" target="_blank" rel="noopener noreferrer"><i class="fa fa-github fa-lg"></i></a>
@@ -40,17 +40,17 @@
   <main id="main">
     <header>
       <p id="header">
-      <a href="..">Home</a>
+      <a href="../..">Home</a>
 
-      &#124; <a href="../blog/index.html">Blog</a>
+      &#124; <a href="../../blog/index.html">Blog</a>
       </p>
 <p>
-<a href="../blog/index.html">Posts</a>
+<a href="../../blog/index.html">Posts</a>
 </p>    </header>
 
 <article>
   <div class="article_title">
-    <h1><a href="../blog/how-i-set-up-this-blog-using-pelican-and-github-pages.html" class="nohover">How I set up this blog (Using Pelican and Github Pages)</a></h1>
+    <h1><a href="../../blog/how-i-set-up-this-blog-using-pelican-and-github-pages/how-i-set-up-this-blog-using-pelican-and-github-pages.html" class="nohover">How I set up this blog (Using Pelican and Github Pages)</a></h1>
   </div>
   <div class="article_text">
     <p>Pelican is a static-site generator. I can't really comment on what that mean's as I'm still learning:). This blog post will mainly touch upon the hurdles I faced while trying to get this running and what I learned during the process.</p>
@@ -112,7 +112,7 @@ Once you answer these questions you'll find that the directory now contains a</p
 <li>tasks.py  (not yet sure of where its used, seems to be generated as a result of answering yes to the previous question regarding automatic generation)</li>
 </ul>
 <p>The sample pelicanconf.py file generated as a result:</p>
-<p><img alt="pelicanconf.py file generated before enabling relative url's" src="../images/config1.png"></p>
+<p><img alt="pelicanconf.py file generated before enabling relative url's" src="../../blog/how-i-set-up-this-blog-using-pelican-and-github-pages/images/config1.png"></p>
 <p><br />
 <br /></p>
 <h2>Part2: (Writing content):</h2>
@@ -123,21 +123,21 @@ Enter the content folder and create a sample file:</p>
 </code></pre></div>
 
 <p>Here's the example I'll be using for this post:</p>
-<p><img alt="Image of a sample .md file" src="../images/post_data.png"></p>
+<p><img alt="Image of a sample .md file" src="../../blog/how-i-set-up-this-blog-using-pelican-and-github-pages/images/post_data.png"></p>
 <p>After filling it out in a similiar fasion and supplying it enough metadata(more on metadata later), save it and lets generate the output. go back to the main directory of the website and invoke:</p>
 <div class="highlight"><pre><span></span><code>pelican<span class="w"> </span>content<span class="w"> </span>-s<span class="w"> </span>pelicanconf.py
 </code></pre></div>
 
 <p>you'll find that pelican has populated the output directory with an index.html file and a bunch of other files. Now if you're using Github for hosting your blog, one workflow would be to just upload this output folder generated to github as the github page repository.</p>
 <p>On opening the index.html which is the homepage, you'll find that there's no css and it looks ugly. </p>
-<p><img alt="The index before enabling relative url's" src="../images/index_gen_1.jpg"></p>
+<p><img alt="The index before enabling relative url's" src="../../blog/how-i-set-up-this-blog-using-pelican-and-github-pages/images/index_gen_1.jpg"></p>
 <p>Dont worry this is because we haven't enabled relative URL's yet. You can confirm this by opening the index.html file, press ctrl+shift+i, this should load the inspect element menu. Now go to the netowork section and reload the page, you should see the main.css file highlighted in red indicating there's some error</p>
-<p><img alt="Inspect element to see if css is loaded or not" src="../images/inspect_element.jpg"></p>
+<p><img alt="Inspect element to see if css is loaded or not" src="../../blog/how-i-set-up-this-blog-using-pelican-and-github-pages/images/inspect_element.jpg"></p>
 <p>On hovering over the main.css it should reveal the path where its triying to find the css file and that it doesnt actually exist. Now lets enable relative url's.
 Go to pelicanconf.py and uncomment the RELATIVE_URLS variable to set it to True.</p>
-<p><img alt="2nd configuration file after enabling relative url's" src="../images/config2.png"></p>
+<p><img alt="2nd configuration file after enabling relative url's" src="../../blog/how-i-set-up-this-blog-using-pelican-and-github-pages/images/config2.png"></p>
 <p>Now generate the output again with the same command as before, and open the index.html file</p>
-<p><img alt="index.html after enabling relative url's" src="../images/index_gen_2.jpg"></p>
+<p><img alt="index.html after enabling relative url's" src="../../blog/how-i-set-up-this-blog-using-pelican-and-github-pages/images/index_gen_2.jpg"></p>
 <p>You can see that the CSS has loaded up right and the default pelican theme(Smashing Magazine) is being used.</p>
 <p>In the coming posts, I'll cover how to add your custom theme, social icons, and how to setup a custom homepage.</p>
   </div>
@@ -145,7 +145,7 @@ Go to pelicanconf.py and uncomment the RELATIVE_URLS variable to set it to True.
   <p>Posted <time data-timeago datetime="2021-07-30T04:16:00+05:30">Fri 30 July 2021</time>
    by Cecil  </p>
   <p>
-  Category: <a href="../category/web_development.html">web_development</a>
+  Category: <a href="../../category/web_development.html">web_development</a>
 </div>
   <div id="article_comments">
     <div id="disqus_thread">
@@ -155,7 +155,7 @@ Go to pelicanconf.py and uncomment the RELATIVE_URLS variable to set it to True.
   <script id="dsq-count-scr" src="https://wolf14.disqus.com/count.js" async></script>
   <script type="text/javascript">
     var disqus_config = function () {
-        this.page.identifier = "blog/how-i-set-up-this-blog-using-pelican-and-github-pages.html";
+        this.page.identifier = "blog/how-i-set-up-this-blog-using-pelican-and-github-pages/how-i-set-up-this-blog-using-pelican-and-github-pages.html";
         this.page.title = "How I set up this blog (Using Pelican and Github Pages)";
     };
     loadDisqus = function(sitename) {
