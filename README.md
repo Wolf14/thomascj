@@ -1,1 +1,0 @@
-contains my personal blog
