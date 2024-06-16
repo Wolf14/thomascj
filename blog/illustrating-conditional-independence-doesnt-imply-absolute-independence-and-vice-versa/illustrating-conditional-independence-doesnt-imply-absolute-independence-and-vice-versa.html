@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Cecil">
+  <meta name="description" content="Illustrating conditional independence doesnt imply Absolute Independence and vice-versa | While, I was reading up on the Kalman filter, I came across the...">
+
+  <link rel="stylesheet" type="text/css" href="../../theme/css/styles.425931e9.min.css">
+
+  <script src="../../theme/js/scripts.ab06d70e.min.js" type="text/javascript"></script>
+
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<meta name="keywords" content="">
+
+  <title>Illustrating conditional independence doesnt imply Absolute Independence and vice-versa | Cecil Jacob Thomas</title>
+
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="../..">
+      </a>
+      <h2><a href="../.." class="nohover">Cecil Jacob Thomas</a></h2>
+      <p></p>
+      <div class="social">
+          <a href="https://github.com/Wolf14" title="github" target="_blank" rel="noopener noreferrer"><i class="fa fa-github fa-lg"></i></a>
+          <a href="mailto:ceciljacob1@gmail.com" title="mail" target="_blank" rel="noopener noreferrer"><i class="fa fa-envelope fa-lg"></i></a>
+          <a href="https://www.youtube.com/channel/UCKF42SRXoyp5DCNql12WclA" title="youtube" target="_blank" rel="noopener noreferrer"><i class="fa fa-youtube fa-lg"></i></a>
+      </div>
+      <ul>
+      </ul>
+    </div>
+  </aside>
+
+  <main id="main">
+    <header>
+      <p id="header">
+      <a href="../..">Home</a>
+
+      &#124; <a href="../../blog/index.html">Blog</a>
+      </p>
+<p>
+<a href="../../blog/index.html">Posts</a>
+</p>    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="../../blog/illustrating-conditional-independence-doesnt-imply-absolute-independence-and-vice-versa/illustrating-conditional-independence-doesnt-imply-absolute-independence-and-vice-versa.html" class="nohover">Illustrating conditional independence doesnt imply Absolute Independence and vice-versa</a></h1>
+  </div>
+  <div class="article_text">
+    <p>While, I was reading up on the Kalman filter, I came across the fact that, "conditional independence doesn't imply absolute independence or the vice-cersa".</p>
+<p>i.e:</p>
+<p>To see this, let's see a few examples:</p>
+<h3>Example 1:</h3>
+<p>Flip 2 fair coins. Let A be the event that the 1st coin is heads, B the event that the 2nd coin is heads, C the event that both coins are the same(both heads/ both tails). Clearly A and B are independent, but they are not conditionally independent given C. If u know that C has happened, then knowing A tells you a lot about B.</p>
+<p>What's interesting here is that A,B,C are pairwise independent but not mutually independent(since any 2 determine the 3rd)</p>
+<h3>A Counterexample:</h3>
+<p>We have a bag containing 2 identical looking coins. One of them  (coin #1) is biased so that it comes heads 99% of the time and the other (coin #2) comes up tails 99% of the time.</p>
+<p>We will draw a coin at random from the bag and flip THE SAME COIN twice. Let A be the event that the 1st flip i
+s heads. B the event that the 2nd flip is heads. These are clearly not independent.</p>
+<p>But let C be the event that coin #1 was drawn (where  P(C) = 1/2). Now A and B are conditionally independent given C: if you know that C happened, then you are just doing an experiment where you take a 99% heads coin and flip it twice. </p>
+<p>Whether the 1st flip is heads/tails, the coin has no memory so the probability of the 2nd flip being heads is still 99%. So if you already know which coin you have, then knowing how the 1st flip came out is of no further help in predicting the 2nd flip. </p>
+  </div>
+<div class="article_meta">
+  <p>Posted <time data-timeago datetime="2024-06-15T13:16:00+05:30">Sat 15 June 2024</time>
+   by Cecil  </p>
+  <p>
+  Category: <a href="../../category/journal.html">Journal</a>
+</div>
+  <div id="article_comments">
+    <div id="disqus_thread">
+    </div>
+  </div>
+
+  <script id="dsq-count-scr" src="https://wolf14.disqus.com/count.js" async></script>
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.identifier = "blog/illustrating-conditional-independence-doesnt-imply-absolute-independence-and-vice-versa/illustrating-conditional-independence-doesnt-imply-absolute-independence-and-vice-versa.html";
+        this.page.title = "Illustrating conditional independence doesnt imply Absolute Independence and vice-versa";
+    };
+    loadDisqus = function(sitename) {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://wolf14.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    };
+    loadDisqus();
+  </script>
+</article>
+
+
+    <div id="ending_message">
+        <p>&copy; Cecil. Built using <a href="http://getpelican.com">Pelican</a>. Theme is <a href="https://github.com/pR0Ps/pelican-subtle">subtle</a> by <a href="http://cmetcalfe.ca">Carey Metcalfe</a>. Based on <a href="https://github.com/giulivo/pelican-svbhack">svbhack</a> by Giulio Fidente.</p>
+    </div>
+  </main>
+
+  <script type="text/javascript">
+    window.addEventListener('load', skipHeader)
+  </script>
+
+
+</body>
+</html>
