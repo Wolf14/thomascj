@@ -123,13 +123,13 @@ target_link_libraries<span class="o">(</span>cloud_viewer<span class="w"> </span
 </code></pre></div>
 
 <p>On fixing that, I ran 'cmake .' in the same directory. The build ran smooth enough. Running 'make' after this threw up an error:</p>
-<div class="highlight"><pre><span></span><code>No such file or directory
-    1 | #include&lt;plc/visualization/cloud_viewer.h&gt;
-      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-compilation terminated.
-make[2]: *** [CMakeFiles/cloud_viewer.dir/build.make:63: CMakeFiles/cloud_viewer.dir/visualizer1.cpp.o] Error 1
-make[1]: *** [CMakeFiles/Makefile2:76: CMakeFiles/cloud_viewer.dir/all] Error 2
-make: *** [Makefile:84: all] Error 2
+<div class="highlight"><pre><span></span><code><span class="nv">No</span><span class="w"> </span><span class="nv">such</span><span class="w"> </span><span class="nv">file</span><span class="w"> </span><span class="nv">or</span><span class="w"> </span><span class="nv">directory</span>
+<span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span>#<span class="k">include</span><span class="o">&lt;</span><span class="nv">plc</span><span class="o">/</span><span class="nv">visualization</span><span class="o">/</span><span class="nv">cloud_viewer</span>.<span class="nv">h</span><span class="o">&gt;</span>
+<span class="w">      </span><span class="o">|</span><span class="w">         </span><span class="o">^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
+<span class="nv">compilation</span><span class="w"> </span><span class="nv">terminated</span>.
+<span class="nv">make</span>[<span class="mi">2</span>]:<span class="w"> </span><span class="o">***</span><span class="w"> </span>[<span class="nv">CMakeFiles</span><span class="o">/</span><span class="nv">cloud_viewer</span>.<span class="nv">dir</span><span class="o">/</span><span class="nv">build</span>.<span class="nv">make</span>:<span class="mi">63</span>:<span class="w"> </span><span class="nv">CMakeFiles</span><span class="o">/</span><span class="nv">cloud_viewer</span>.<span class="nv">dir</span><span class="o">/</span><span class="nv">visualizer1</span>.<span class="nv">cpp</span>.<span class="nv">o</span>]<span class="w"> </span><span class="nv">Error</span><span class="w"> </span><span class="mi">1</span>
+<span class="nv">make</span>[<span class="mi">1</span>]:<span class="w"> </span><span class="o">***</span><span class="w"> </span>[<span class="nv">CMakeFiles</span><span class="o">/</span><span class="nv">Makefile2</span>:<span class="mi">76</span>:<span class="w"> </span><span class="nv">CMakeFiles</span><span class="o">/</span><span class="nv">cloud_viewer</span>.<span class="nv">dir</span><span class="o">/</span><span class="nv">all</span>]<span class="w"> </span><span class="nv">Error</span><span class="w"> </span><span class="mi">2</span>
+<span class="nv">make</span>:<span class="w"> </span><span class="o">***</span><span class="w"> </span>[<span class="nv">Makefile</span>:<span class="mi">84</span>:<span class="w"> </span><span class="nv">all</span>]<span class="w"> </span><span class="nv">Error</span><span class="w"> </span><span class="mi">2</span>
 </code></pre></div>
 
 <p>Being the idiot I am, only the next day did I realize that I had included a path with "plc" instead of "pcl". </p>
