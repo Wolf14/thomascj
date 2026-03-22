@@ -57,13 +57,14 @@
 So this article will attempt to revisit the pain points I had come across while setting up the 3d printer since my last blog post update.</p>
 <p>So this will be the 2nd in my 3 part series.</p>
 <h2>Section 1: Mechanical subsystem</h2>
-<p>This section was pretty straightforward. The only new aspects were the routing of the Core XY belt system, Tensioning of the Gantry, and the idea of heat set inserts.
-I got most of my parts printed in ABS with 50% infill. Looking back that was clearly overkill and naive on my part. I would rather have chosen a 20-30% infill.</p>
+<p>This section was pretty straightforward. The only new aspects were the routing of the Core XY belt system, Tensioning of the Gantry, and the idea of heat set inserts.</p>
+<p><a href="https://www.youtube.com/watch?v=6RjvsUvCrb8">THIS</a> video helped me with how to route the belts in the Core XY system.</p>
+<p>I got most of my parts printed in ABS with 50% infill. Looking back that was clearly overkill and naive on my part. I would rather have chosen a 20-30% infill.</p>
 <p><img alt="3D printed parts1" src="../../blog/part-2-of-building-my-3d-printer/images/3d_printed_part1.jpeg">
 <img alt="3D printed parts2" src="../../blog/part-2-of-building-my-3d-printer/images/3d_printed_part2.jpeg"></p>
 <p>This was how the system looked after assembling the gantry. It was initially very tight, But after leaving it for some days the motion became smoother. I also later realized I hadnt deracked the Gantry properly or paid any attention to belt tension. This would come back to bite me.</p>
 <p><img alt="Gantry assembly" src="../../blog/part-2-of-building-my-3d-printer/images/gantry_assembly.jpeg"></p>
-<p>Here's a low resolution video of me testing the gantry movement. Feels a little tight here. And tbh the gantry was not perfectly perpendicular. I would later come to realize that I also had to lubricate the Linear rails. Not doing so would later cause shifts midway while printing. More on this in my 3rd post.</p>
+<p>Here's a low resolution video of me testing the gantry movement. Feels a little tight here. And tbh the gantry was not perfectly perpendicular. I would later come to realize that I also had to lubricate the Linear rails. Not doing so would later cause "layer shifts" midway while printing. More on this in my 3rd post.</p>
 <video width="100%" controls>
   <source src="../../blog/part-2-of-building-my-3d-printer/videos/gantry_motion_manual.mp4" type="video/mp4">
 </video>
@@ -84,7 +85,7 @@ You can see gaps here and there along with jagged edges at a few places on the p
 <p>Flashing the Controller Board:</p>
 <p>I am using the Pro 1.1 Version. Hence had to make the jumper pin changes as provided in the table on the <a href="https://github.com/bigtreetech/BIGTREETECH-OCTOPUS-Pro/tree/master">github page</a>:</p>
 <p>There is also a pdf guide for the controller board available here which mentions the MCU Power Jumper pin and the DFU pin in the same gitub repo.
-Here is a picture of the DFU pin(MCU pin can be found easily in documentation):
+Here is a picture of the DFU pin(for the MCU pin, just lookup the documentation):
 <img alt="Controller board pin 1" src="../../blog/part-2-of-building-my-3d-printer/images/octopu_pro_board_1_doodled.jpeg"></p>
 <h4>FLASHING:</h4>
 <p>To Flash the firmware, connect the MCU jumper as it makes powering the board for flashing very easy(Pg 18 in the manual). 
@@ -167,6 +168,8 @@ If uvloop fails, Moonraker will fall back to asyncio and work perfectly.</p>
 
 <p>The image shows how the output is supposed to look like:
 <img alt="Flash step1" src="../../blog/part-2-of-building-my-3d-printer/images/dfu_afterinstall.png"></p>
+<p>or somethign like:</p>
+<p><img alt="output1" src="../../blog/part-2-of-building-my-3d-printer/images/dfu_afterinstall_2.png"></p>
 <p>As you can see, it complains about some errors, but you dont have to worry, Flashing was successful. It complains because:</p>
 <p>dfu-util sometimes reports a non-critical error even when flashing succeeded — especially on STM32H7 chips.
 Common reasons:</p>
@@ -190,6 +193,7 @@ Type</p>
 <div class="highlight"><pre><span></span><code>usb-Klipper_stm32h723xx_XXXX-if00
 </code></pre></div>
 
+<p><img alt="3_afterinstall" src="../../blog/part-2-of-building-my-3d-printer/images/3_afterinstall.png"></p>
 <p>Copy this and paste this path into your printer.cfg</p>
 <p>Now you should be done with setting up klipper. To make sure just check if the klipper and moonraker services are running.</p>
 <p>I was able to interface from my computer connected to the same wifi as my Pi at:</p>
@@ -202,7 +206,7 @@ Type</p>
 <p>The most cumbersome part for me was wiring. 
 As far as my build was concerned, I needed to figure out how much length of wire I needed to source and what Gauge it should be.
 So I'm sure most of you know, but I'll just explain the wiring nevertheless. The AC power comes in and goes to the AC-DC 24V SMPS. This DC is then used to power the Controller board. In addition, the AC voltage is also routed to the bed heater via the Relay. </p>
-<p>This was my calculation for the amount of wires required():</p>
+<p>This was my calculation for the amount of wires required:</p>
 <div class="highlight"><pre><span></span><code>Mains<span class="w"> </span>wiring:
 
 <span class="w">    </span>Switch<span class="w"> </span>to<span class="w"> </span>WAGO
@@ -248,7 +252,7 @@ Mains<span class="w"> </span>Wiring:<span class="o">(</span>AWG<span class="w"> 
 </code></pre></div>
 
 <p>RPi:
-    RPi USB to Controller Board USB ? (VERIFY)</p>
+    RPi USB to Controller Board via USB</p>
 <p>Controller Board:</p>
 <div class="highlight"><pre><span></span><code><span class="w">    </span><span class="m">2</span><span class="w"> </span>wires<span class="w"> </span>to<span class="w"> </span>Z<span class="w"> </span>end<span class="w"> </span>stop<span class="w">               </span><span class="o">(</span>AWG<span class="w"> </span><span class="m">24</span><span class="o">)</span><span class="w">            </span>-through<span class="w"> </span>cable<span class="w"> </span>chain<span class="w"> </span>Z<span class="w">      </span>-100cm<span class="w">      </span>
 <span class="w">    </span><span class="m">2</span><span class="w"> </span>wires<span class="w"> </span>to<span class="w"> </span>Y<span class="w"> </span>end<span class="w"> </span>stop<span class="w">               </span><span class="o">(</span>AWG<span class="w"> </span><span class="m">24</span><span class="o">)</span><span class="w">            </span>-through<span class="w"> </span>cable<span class="w"> </span>chain<span class="w"> </span>X<span class="w">      </span>-115cm<span class="w">      </span>
@@ -299,7 +303,7 @@ Mains<span class="w"> </span>Wiring:<span class="o">(</span>AWG<span class="w"> 
 <p>I had labelled the wires after routing them through the cable chains to easily connect to the appropriate port on the controller board. Also I couldn't find any online sources pinning down the number of links I needed to use in my cable cahins, so here is the number(excluding terminal connectors).</p>
 <p>Z - 19
 <img alt="z_cable_links" src="../../blog/part-2-of-building-my-3d-printer/images/Z_cable_links.jpeg"></p>
-<p>Y -
+<p>Y - 20
 <img alt="Y cable_links" src="../../blog/part-2-of-building-my-3d-printer/images/Y_cable_links.jpeg"></p>
 <p>X - 25
 <img alt="X cable_links" src="../../blog/part-2-of-building-my-3d-printer/images/X_cable_links.jpeg"></p>
